@@ -1,0 +1,117 @@
+/* ============================================
+   ABOUT - Personal Profile
+   ============================================ */
+.about {
+  padding: var(--section-padding);
+  background: var(--bg-secondary);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(360px, 420px) 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Left Column */
+.about-left {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+  max-width: 420px;
+}
+
+/* ProfileCard integration */
+.about-profile-card {
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.about-profile-card .pc-card {
+  max-height: 480px;
+}
+
+.about-profile-card .pc-card-wrapper {
+  width: 100%;
+}
+
+/* Ensure info items align with ProfileCard width */
+.about-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* Inner card: no border/bg since BorderGlow handles it */
+.info-item {
+  padding: 16px 20px;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  transition: none;
+}
+
+.info-key {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.info-val {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Right Column */
+.about-right {
+  padding-top: 80px;
+}
+
+.about-bio {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 2;
+  margin-bottom: 20px;
+  margin-top: 28px;
+}
+
+.about-bio:first-of-type {
+  margin-top: 0;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+
+/* Inner card: no border/bg since BorderGlow handles it */
+.stat-card {
+  padding: 28px 24px;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-size: 2.8rem;
+  font-weight: 800;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}

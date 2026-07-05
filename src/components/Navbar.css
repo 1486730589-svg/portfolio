@@ -1,0 +1,163 @@
+/* ============================================
+   NAVBAR - Sticky Frosted Glass
+   ============================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0 60px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Hidden by default - slides down when scrolled */
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+}
+
+/* Visible state */
+.navbar--visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.navbar-inner {
+  max-width: var(--max-width);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* Frosted glass */
+  padding: 10px 28px;
+  border-radius: 16px;
+  background: rgba(18, 18, 26, 0.65);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 1px 0 rgba(255, 255, 255, 0.04) inset;
+}
+
+/* Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+.navbar-logo-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--accent-gradient);
+  font-size: 1rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.navbar-logo-text {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Links */
+.navbar-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.navbar-link {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(240, 240, 245, 0.6);
+  letter-spacing: 0.04em;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 1.5px;
+  background: var(--accent-gradient);
+  transform: translateX(-50%);
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 1px;
+  box-shadow: 0 0 8px rgba(108, 99, 255, 0.5);
+}
+
+.navbar-link:hover {
+  color: rgba(240, 240, 245, 0.95);
+  text-shadow: 0 0 10px rgba(108, 99, 255, 0.3);
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+/* CTA */
+.navbar-cta {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 8px 20px;
+  border-radius: 8px;
+  background: var(--accent-gradient);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0) 70%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.navbar-cta:hover::before {
+  opacity: 1;
+  animation: shimmer 1s ease-in-out forwards;
+}
+
+.navbar-cta:hover {
+  box-shadow: 0 0 24px rgba(108, 99, 255, 0.4), 0 4px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+.navbar-cta:active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: 0.1s;
+}
